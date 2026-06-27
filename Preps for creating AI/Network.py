@@ -54,6 +54,6 @@ net = Network([l1, l2, l3])
 
 
 # net.forward(data_think)
-net.backward(data_learn, 0.00001, 5000)
+net.backward(data_learn, 0.00001, 8000)
 for x in [-10, -5, 0, 5, 10]:
     print(f"x={x}, pred={net.forward([x])}, expected={x**2}")
