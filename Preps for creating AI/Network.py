@@ -43,21 +43,4 @@ class Network:
         return x
 
 
-data_learn = [[[x/10], x**2/100] for x in range(-16, 17)]
-data_think = [x for x in range(-5, 21)]
 
-lr = 0.00001
-
-l1 = Layer(16, activation=LeakyReLU(), optimizer=SGD(lr))
-l2 = Layer(16, LeakyReLU(), SGD(lr))
-l3 = Layer(8, ReLu(), SGD(lr))
-l4 = Layer(1, activation=None)  # выход без активации
-
-net = Network([l1, l2, l4])
-
-
-# net.forward(data_think)
-net.backward(data_learn, 10000)
-for x in data_think:
-    pred = net.forward([x / 10.0])[0] * 100.0
-    print(f"x={x}, pred={pred:.2f}, expected={x**2}")
