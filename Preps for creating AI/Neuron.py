@@ -29,7 +29,6 @@ class Neuron:
         :returns output: float
         """
         output = 0
-        print(x)
         if len(self.weights) == 0:
             fan_in = len(x)
             if fan_in == 0:
